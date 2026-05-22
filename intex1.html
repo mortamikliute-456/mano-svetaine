@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature World</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#071018;
+    --card:#111827;
+    --text:white;
+    --green:#4ade80;
+    --light:#d1d5db;
+}
+
+.light-mode{
+    --bg:#f3f4f6;
+    --card:white;
+    --text:#111827;
+    --green:#16a34a;
+    --light:#374151;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:0.4s;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    color:var(--green);
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    font-size:18px;
+}
+
+nav a:hover{
+    color:var(--green);
+}
+
+.mode-btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:30px;
+    background:var(--green);
+    color:white;
+    cursor:pointer;
+}
+
+/* HERO */
+
+header{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:80px;
+    margin-bottom:20px;
+}
+
+.hero span{
+    color:var(--green);
+}
+
+.hero p{
+    font-size:24px;
+    margin-bottom:35px;
+    color:#e5e7eb;
+}
+
+.hero button{
+    padding:18px 40px;
+    border:none;
+    border-radius:40px;
+    background:var(--green);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.08);
+}
+
+/* SECTION */
+
+section{
+    padding:110px 10%;
+}
+
+.title{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:60px;
+    color:var(--green);
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:25px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(34,197,94,0.3);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    color:var(--green);
+    margin-bottom:15px;
+}
+
+.card-content p{
+    line-height:1.7;
+    color:var(--light);
+    margin-bottom:20px;
+}
+
+.card-content a{
+    display:inline-block;
+    padding:12px 24px;
+    background:var(--green);
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+/* TIPS */
+
+.tips{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.tip{
+    background:var(--card);
+    padding:30px;
+    border-radius:25px;
+    transition:0.3s;
+}
+
+.tip:hover{
+    transform:scale(1.04);
+}
+
+.tip h3{
+    color:var(--green);
+    margin-bottom:15px;
+}
+
+/* QUIZ */
+
+.quiz{
+    max-width:800px;
+    margin:auto;
+    background:var(--card);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.quiz button{
+    margin:10px;
+    padding:15px 25px;
+    border:none;
+    background:var(--green);
+    color:white;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:20px;
+    font-size:22px;
+    color:var(--green);
+}
+
+/* VIDEO */
+
+.video{
+    display:flex;
+    justify-content:center;
+}
+
+.video iframe{
+    width:95%;
+    max-width:1100px;
+    height:600px;
+    border:none;
+    border-radius:25px;
+}
+
+/* REVIEWS */
+
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.review{
+    background:var(--card);
+    padding:35px;
+    border-radius:25px;
+}
+
+.review h3{
+    color:var(--green);
+    margin:15px 0;
+}
+
+/* FORM */
+
+.form-box{
+    max-width:700px;
+    margin:auto;
+    background:var(--card);
+    padding:40px;
+    border-radius:25px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input,
+textarea{
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:#1f2937;
+    color:white;
+}
+
+textarea{
+    min-height:150px;
+}
+
+form button{
+    padding:16px;
+    border:none;
+    border-radius:30px;
+    background:var(--green);
+    color:white;
+    cursor:pointer;
+}
+
+/* CONTACT */
+
+.contacts{
+    background:var(--card);
+    padding:50px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.contacts p{
+    margin:15px 0;
+}
+
+.contacts a{
+    color:var(--green);
+}
+
+/* FOOTER */
+
+footer{
+    background:black;
+    padding:35px;
+    text-align:center;
+    color:#9ca3af;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:50px;
+}
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+.video iframe{
+    height:300px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+
+<audio autoplay loop controls style="position:fixed;bottom:20px;right:20px;z-index:999;">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">Nature World</div>
+
+<ul>
+<li><a href="#countries">Šalys</a></li>
+<li><a href="#nature">Gamta</a></li>
+<li><a href="#tips">Patarimai</a></li>
+<li><a href="#quiz">Quiz</a></li>
+<li><a href="#reviews">Atsiliepimai</a></li>
+<li><a href="#contacts">Kontaktai</a></li>
+</ul>
+
+<button class="mode-btn" onclick="toggleMode()">
+Light/Dark
+</button>
+
+</nav>
+
+<!-- HERO -->
+
+<header>
+
+<div class="hero">
+
+<h1>Gamta <span>&</span> Nuotykiai</h1>
+
+<p>
+Atrask gražiausias pasaulio vietas, klausyk ramios muzikos,
+spręsk quiz klausimus ir tyrinėk gamtos pasaulį.
+</p>
+
+<a href="#countries">
+<button>Tyrinėti</button>
+</a>
+
+</div>
+
+</header>
+
+<!-- COUNTRIES -->
+
+<section id="countries">
+
+<h2 class="title">Šalys Kurias Verta Aplankyti</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Islandija</h3>
+<p>Ledynai, kriokliai ir nuostabūs gamtos vaizdai.</p>
+<a href="https://www.visiticeland.com/" target="_blank">Aplankyti</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Norvegija</h3>
+<p>Įspūdingi fjordai ir nuostabūs kalnai.</p>
+<a href="https://www.visitnorway.com/" target="_blank">Tyrinėti</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Šveicarija</h3>
+<p>Ežerai, kalnai ir modernūs miestai.</p>
+<a href="https://www.myswitzerland.com/" target="_blank">Plačiau</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- NATURE -->
+
+<section id="nature">
+
+<h2 class="title">Gamtos Stebuklai</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Kalnai</h3>
+<p>Aukšti kalnai ir nuotykių kupinos vietos.</p>
+<a href="https://lt.wikipedia.org/wiki/Kalnas" target="_blank">Sužinoti</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Vandenynai</h3>
+<p>Didžiuliai pasaulio vandenynai ir gamta.</p>
+<a href="https://lt.wikipedia.org/wiki/Vandenynas" target="_blank">Peržiūrėti</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop">
+<div class="card-content">
+<h3>Miškai</h3>
+<p>Paslaptingi miškai ir laukinė gamta.</p>
+<a href="https://lt.wikipedia.org/wiki/Mi%C5%A1kas" target="_blank">Atidaryti</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- TIPS -->
+
+<section id="tips">
+
+<h2 class="title">Kelionių Patarimai</h2>
+
+<div class="tips">
+
+<div class="tip">
+<h3>🌿 Keliauk ryte</h3>
+<p>Ryte gamta atrodo gražiausiai ir ramiausiai.</p>
+</div>
+
+<div class="tip">
+<h3>📷 Fotografuok</h3>
+<p>Naudok natūralią šviesą gražioms nuotraukoms.</p>
+</div>
+
+<div class="tip">
+<h3>🎒 Turėk kuprinę</h3>
+<p>Pasiimk vandens ir svarbiausius daiktus.</p>
+</div>
+
+<div class="tip">
+<h3>🌍 Tyrinėk</h3>
+<p>Nebijok aplankyti naujų vietų ir parkų.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- QUIZ -->
+
+<section id="quiz">
+
+<h2 class="title">Didysis Gamtos Quiz</h2>
+
+<div class="quiz">
+
+<h3>1. Kur norėtum keliauti?</h3>
+
+<button onclick="showResult('Islandija yra nuostabi vieta!')">Islandija</button>
+<button onclick="showResult('Norvegija turi nuostabius fjordus!')">Norvegija</button>
+<button onclick="showResult('Šveicarija garsėja kalnais!')">Šveicarija</button>
+
+<br><br>
+
+<h3>2. Ką labiausiai mėgsti gamtoje?</h3>
+
+<button onclick="showResult('Kalnai suteikia daug nuotykių!')">Kalnus</button>
+<button onclick="showResult('Miškai yra labai ramūs!')">Miškus</button>
+<button onclick="showResult('Vandenynai atrodo įspūdingai!')">Vandenynus</button>
+
+<br><br>
+
+<h3>3. Ką mėgsti veikti?</h3>
+
+<button onclick="showResult('Kelionės padeda atrasti pasaulį!')">Keliauti</button>
+<button onclick="showResult('Fotografija padeda įamžinti akimirkas!')">Fotografuoti</button>
+<button onclick="showResult('Poilsis gamtoje atpalaiduoja!')">Ilsėtis</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</section>
+
+<!-- VIDEO -->
+
+<section>
+
+<h2 class="title">Gamtos Video</h2>
+
+<div class="video">
+
+<iframe 
+src="https://www.youtube.com/embed/6lt2JfJdGSY?autoplay=1&mute=1&loop=1&playlist=6lt2JfJdGSY"
+allow="autoplay"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+<h2 class="title">Atsiliepimai</h2>
+
+<div class="reviews">
+
+<div class="review">
+<h3>★★★★★ Lukas</h3>
+<p>„Labai moderni ir graži svetainė apie gamtą.“</p>
+</div>
+
+<div class="review">
+<h3>★★★★★ Emilija</h3>
+<p>„Patiko quiz ir gražūs paveikslėliai.“</p>
+</div>
+
+<div class="review">
+<h3>★★★★★ Mantas</h3>
+<p>„Daug įdomių vietų ir patarimų.“</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- COMMENTS -->
+
+<section>
+
+<h2 class="title">Palik Komentarą</h2>
+
+<div class="form-box">
+
+<form>
+
+<input type="text" placeholder="Tavo vardas">
+
+<input type="email" placeholder="Tavo el. paštas">
+
+<textarea placeholder="Parašyk komentarą arba atsiliepimą..."></textarea>
+
+<button type="submit">
+Siųsti
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- CONTACTS -->
+
+<section id="contacts">
+
+<h2 class="title">Kontaktai</h2>
+
+<div class="contacts">
+
+<p>📧 El. paštas: info@natureworld.lt</p>
+
+<p>📍 Adresas: Vilniaus g. 10, Šiauliai</p>
+
+<p>
+🗺 Google Maps:
+<a href="https://maps.google.com" target="_blank">
+Atidaryti žemėlapį
+</a>
+</p>
+
+<p>
+📸 Instagram:
+<a href="https://instagram.com" target="_blank">
+instagram.com/natureworld
+</a>
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 Nature World | Moderni svetainė apie gamtą ir keliones.
+</p>
+
+</footer>
+
+<script>
+
+function toggleMode(){
+    document.body.classList.toggle("light-mode");
+}
+
+function showResult(text){
+    document.getElementById("result").innerHTML = text;
+}
+
+</script>
+
+</body>
+</html>
